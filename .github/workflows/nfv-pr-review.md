@@ -133,7 +133,7 @@ post-steps:
       name: nfv-evidence
       path: /tmp/gh-aw/sandbox/agent/logs/nfv
       if-no-files-found: warn
-source: microsoft/neuro-formal-verification/workflow@7c08fbaba12f3e6b6aee169c93c877daaff3665a
+source: microsoft/neuro-formal-verification/workflow@8c48598a3bd0ddf1c94b649eb1e52d9be171efb0
 ---
 
 # NFV PR reviewer
