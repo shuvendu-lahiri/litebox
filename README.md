@@ -22,6 +22,12 @@ Example use cases include:
 
 ![LiteBox and related projects](./.figures/litebox.svg)
 
+## NFV audit reports
+
+The [NFV audit dashboard](./nfv_reports/README.md) indexes published prototype
+reviewer reports and highlights conditional model refutations, not confirmed
+source bugs.
+
 ## Contributing
 
 See the following files for details:
