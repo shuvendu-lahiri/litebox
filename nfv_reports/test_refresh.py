@@ -55,9 +55,15 @@ class RefreshTests(unittest.TestCase):
 
     def test_live_dashboard_and_github_readme_navigation(self):
         data = refresh.build([pr()], [comment()], [run()], "snapshot")
-        self.assertIn("https://shuvendu-lahiri.github.io/litebox/nfv_reports/", refresh.render_markdown(data))
+        self.assertIn("https://shuvendu-lahiri.github.io/nfv_dashboard/litebox/", refresh.render_markdown(data))
         self.assertIn("https://github.com/shuvendu-lahiri/litebox/blob/nfv-reports/nfv_reports/README.md",
                       refresh.render_html(data))
+
+    def test_hosted_pages_redirect_without_redirecting_local_snapshots(self):
+        rendered = refresh.render_html(refresh.build([pr()], [comment()], [run()], "snapshot"))
+        self.assertIn('location.replace("https://shuvendu-lahiri.github.io/nfv_dashboard/litebox/")', rendered)
+        self.assertIn('location.protocol === "https:" || location.protocol === "http:"', rendered)
+        self.assertIn('rel="canonical"', rendered)
 
     def test_report_without_legacy_marker(self):
         report = refresh.parse_report(comment())

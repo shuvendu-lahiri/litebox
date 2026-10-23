@@ -188,7 +188,7 @@ def render_markdown(data):
         "Published results from the prototype [Neuro-Formal Verification](https://arxiv.org/abs/2608.21516) reviewer.",
         "**Refutations are conditional MODEL refutations, not confirmed source bugs. Verification concerns "
         "translated models under stated assumptions; failure to refute is not evidence of correctness.**", "",
-        "**[Live interactive dashboard](https://shuvendu-lahiri.github.io/litebox/nfv_reports/)** "
+        "**[Live interactive dashboard](https://shuvendu-lahiri.github.io/nfv_dashboard/litebox/)** "
         "or [download the standalone HTML](index.html) (no server or external dependencies).", "",
         f"Snapshot: {data['generated_at']}. Latest published report per PR supplies the counts; all report links are retained "
         "in [data.json](data.json). Workflow attempts without a published report are not counted as zero findings.", "",
