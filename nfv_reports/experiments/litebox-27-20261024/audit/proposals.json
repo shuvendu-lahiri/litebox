@@ -1,0 +1,58 @@
+[
+  {
+    "function_id": "function-aa23e6a0d2c5072d5123",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "If the test reaches the point where the worker reports acquiring the released lock, it joins that worker before returning normally and propagates any worker panic via unwrap.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-d3d67fed29db53882970",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "After completing the server-side work, the test waits for the spawned client thread to finish before returning successfully; if that thread panics, the join is unwrapped and the test also panics.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-f5ac6e0f7758c6a550fd",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "If execution reaches thread cleanup and the first join succeeds, the function joins both spawned receiver handles before returning normally; a receiver panic detected by either executed join prevents normal return.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-ba8aa077e3230adffb64",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "On the normal cleanup path after spawning the writer-closing thread, the test waits for that thread to finish before returning, and fails if the spawned thread panicked.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-3fc40b241f90dfab5917",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "If execution reaches the final synchronization step, the test joins the spawned writer thread and returns normally only after that thread finishes without panicking; a writer-thread panic is propagated by unwrapping the join result.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-d31ef419b5837ef83a90",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "If the writer thread is spawned, test_poll must join it before returning normally; a panic in that thread must cause test_poll to panic rather than silently succeed.",
+    "language": "rust"
+  },
+  {
+    "function_id": "function-8132cd8426a660885708",
+    "origin": "intent",
+    "signal_id": "commit:966b0986a08a678eea06e78191f5f06798347558",
+    "quote": "Join the spawned handles in tests",
+    "property": "The test retains the spawned writer\u2019s handle and, after the pipe operations and descriptor closes, waits for that writer to finish; it returns normally only if joining succeeds, so a writer-thread panic causes the test to panic.",
+    "language": "rust"
+  }
+]

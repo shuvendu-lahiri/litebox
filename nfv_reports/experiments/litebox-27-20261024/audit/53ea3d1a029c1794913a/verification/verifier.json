@@ -1,0 +1,11 @@
+{
+  "outcome": "verified",
+  "exit_code": 0,
+  "duration_s": 2.209,
+  "mode": "unbounded",
+  "unroll": null,
+  "errors": [],
+  "stdout": "\nDafny program verifier finished with 5 verified, 0 errors\n",
+  "stderr": "",
+  "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+}

@@ -1,0 +1,101 @@
+{
+  "finding_id": "8a5d0acdf4e229313a10",
+  "short_property": "After both receivers are spawned, a receiver panic is propagated.",
+  "short_goal": "(bothSpawned && (receiver2Panics || receiver1Panics)) ==> propagatedReceiverPanic",
+  "simplification_checked": true,
+  "fix_checked": true,
+  "tag": "refutation-with-fix (model-checked candidate)",
+  "entailment_without_witness": {
+    "outcome": "verified",
+    "exit_code": 0,
+    "duration_s": 1.495,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [],
+    "stdout": "\nDafny program verifier finished with 1 verified, 0 errors\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "short_refutation": {
+    "outcome": "verified",
+    "exit_code": 0,
+    "duration_s": 1.517,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [],
+    "stdout": "\nDafny program verifier finished with 5 verified, 0 errors\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "short_input_domain": {
+    "outcome": "failed",
+    "exit_code": 4,
+    "duration_s": 1.511,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [
+      "C:/Users/Shuvendu/.copilot/session-state/888a2596-4db4-4670-9f63-7d702ccc6bf6/files/litebox-27-variants-20261024/historical-p7/attempt-1/short-domain/model.dfy(381,4): Error: a postcondition could not be proved on this return path"
+    ],
+    "stdout": "./historical-p7/attempt-1/short-domain/model.dfy(381,4): Error: a postcondition could not be proved on this return path\n    |\n381 |     return;\n    |     ^^^^^^^\n\n./historical-p7/attempt-1/short-domain/model.dfy(261,10): Related location: this is the postcondition that could not be proved\n    |\n261 |   ensures false\n    |           ^^^^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "fixed_full_property": {
+    "outcome": "verified",
+    "exit_code": 0,
+    "duration_s": 1.548,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [],
+    "stdout": "\nDafny program verifier finished with 4 verified, 0 errors\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "fixed_input_domain": {
+    "outcome": "failed",
+    "exit_code": 4,
+    "duration_s": 1.499,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [
+      "C:/Users/Shuvendu/.copilot/session-state/888a2596-4db4-4670-9f63-7d702ccc6bf6/files/litebox-27-variants-20261024/historical-p7/attempt-1/fixed-domain/model.dfy(238,4): Error: a postcondition could not be proved on this return path"
+    ],
+    "stdout": "./historical-p7/attempt-1/fixed-domain/model.dfy(238,4): Error: a postcondition could not be proved on this return path\n    |\n238 |     return;\n    |     ^^^^^^^\n\n./historical-p7/attempt-1/fixed-domain/model.dfy(211,10): Related location: this is the postcondition that could not be proved\n    |\n211 |   ensures false\n    |           ^^^^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "fixed_original_witness": {
+    "outcome": "verified",
+    "exit_code": 0,
+    "duration_s": 1.477,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [],
+    "stdout": "\nDafny program verifier finished with 5 verified, 0 errors\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "fixed_original_witness_input_domain": {
+    "outcome": "failed",
+    "exit_code": 4,
+    "duration_s": 1.492,
+    "mode": "unbounded",
+    "unroll": null,
+    "errors": [
+      "C:/Users/Shuvendu/.copilot/session-state/888a2596-4db4-4670-9f63-7d702ccc6bf6/files/litebox-27-variants-20261024/historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(356,4): Error: a postcondition could not be proved on this return path"
+    ],
+    "stdout": "./historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(356,4): Error: a postcondition could not be proved on this return path\n    |\n356 |     return;\n    |     ^^^^^^^\n\n./historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(233,10): Related location: this is the postcondition that could not be proved\n    |\n233 |   ensures false\n    |           ^^^^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+    "stderr": "",
+    "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+  },
+  "original_full_goals": [
+    "(bothSpawned && returnedNormally ==> waitedReceiver2 && waitedReceiver1) && (bothSpawned && (receiver2Panics || receiver1Panics) ==> functionPanicked && propagatedReceiverPanic)"
+  ],
+  "repaired_model_sha256": "876117a68320efc8d9ca576a0ae6d8232d3abf5bb37ea14295f02cc8e41c215a",
+  "source_patch_sha256": "97d793d774eb2871b1d6d2e4149214d8e1f33137b7631114e0318ac8e8d85cfd",
+  "original_source_sha256": "32b67348a73f779f96365e66fd9bc7d3df6e6beb22136b5a8d2b403ac87459c6",
+  "patched_source_sha256": "41aaafb2aaba8bfadf8e6d5da63bd7639ecdf4a7b1e9974d4a9f53966a09b2c7",
+  "source_compilation": "not performed",
+  "source_correspondence": "not established",
+  "global_minimality": "not established"
+}

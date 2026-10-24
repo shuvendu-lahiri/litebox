@@ -1,0 +1,13 @@
+{
+  "outcome": "failed",
+  "exit_code": 4,
+  "duration_s": 1.492,
+  "mode": "unbounded",
+  "unroll": null,
+  "errors": [
+    "C:/Users/Shuvendu/.copilot/session-state/888a2596-4db4-4670-9f63-7d702ccc6bf6/files/litebox-27-variants-20261024/historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(356,4): Error: a postcondition could not be proved on this return path"
+  ],
+  "stdout": "./historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(356,4): Error: a postcondition could not be proved on this return path\n    |\n356 |     return;\n    |     ^^^^^^^\n\n./historical-p7/attempt-1/fixed-original-witness-domain/model.dfy(233,10): Related location: this is the postcondition that could not be proved\n    |\n233 |   ensures false\n    |           ^^^^^\n\n\nDafny program verifier finished with 0 verified, 1 error\n",
+  "stderr": "",
+  "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+}

@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "kind": "source-presentation",
+  "report_sha256": "f1b58afff1256e8132ac85e47a8b8c629f97c36fa7a0ff46f4488fbb410807df",
+  "bundle_sha256": "e703c8b3f5e81202914f25324336b8781e9dbd9d92cf49e01c009d07103246b2",
+  "findings": {
+    "8a5d0acdf4e229313a10": {
+      "inputs": {
+        "ty": {
+          "kind": "abstract",
+          "label": "socket type supplied to unix_socketpair_bidirectional",
+          "reason": "The integer 0 is an opaque abstraction of SockType, and no source enum variant or discriminant can be reconstructed from the supplied evidence."
+        },
+        "is_nonblocking": {
+          "kind": "expression",
+          "expression": "is_nonblocking",
+          "anchors": [
+            {
+              "path": "litebox_shim_linux/src/syscalls/net.rs",
+              "line": 4166,
+              "excerpt": "    fn unix_socketpair_bidirectional(ty: SockType, is_nonblocking: bool) {"
+            }
+          ]
+        },
+        "prefixCompletes": {
+          "kind": "abstract",
+          "label": "completion of socket-pair setup before receiver creation",
+          "reason": "This Boolean summarizes whether setup and its unwrap complete; it is not the value of a single source expression."
+        },
+        "receiver2SpawnCompletes": {
+          "kind": "abstract",
+          "label": "successful creation of the receiver2 thread handle",
+          "reason": "This Boolean abstracts whether the spawn call returns a handle or panics and is not a concrete value returned by the source call."
+        },
+        "betweenSpawnsCompletes": {
+          "kind": "abstract",
+          "label": "completion of the sleep and send phase between receiver spawns",
+          "reason": "This Boolean summarizes multiple source operations and cannot be mapped to one concrete source expression or value."
+        },
+        "receiver1SpawnCompletes": {
+          "kind": "abstract",
+          "label": "successful creation of the receiver1 thread handle",
+          "reason": "This Boolean abstracts whether the spawn call returns a handle or panics and is not a concrete value returned by the source call."
+        },
+        "beforeJoinsCompletes": {
+          "kind": "abstract",
+          "label": "completion of the send, sleep, and socket-close phase before the joins",
+          "reason": "This Boolean combines several source operations, so the evidence does not identify a single concrete operation or value responsible for non-completion."
+        },
+        "receiver2Panics": {
+          "kind": "abstract",
+          "label": "panic outcome of the receiver2 closure",
+          "reason": "The Boolean summarizes the closure's eventual outcome and does not identify a concrete receive failure or assertion result."
+        },
+        "receiver1Panics": {
+          "kind": "abstract",
+          "label": "panic outcome of the receiver1 closure",
+          "reason": "The Boolean summarizes the closure's eventual outcome and does not identify a concrete receive failure or assertion result."
+        }
+      },
+      "failure": {
+        "expression": "receiver2.join().unwrap();",
+        "anchors": [
+          {
+            "path": "litebox_shim_linux/src/syscalls/net.rs",
+            "line": 4221,
+            "excerpt": "        receiver2.join().unwrap();"
+          }
+        ]
+      },
+      "explanation": "If both receiver spawn calls return handles, the receiver2 closure panics, and an abstracted operation after the second spawn but before the joins panics, then receiver2.join().unwrap(); is skipped. Under that condition, the function does not wait through this join or propagate receiver2's panic through its unwrap, conditionally refuting the stated guarantee."
+    }
+  },
+  "provenance": {
+    "method": "tool-free-agent",
+    "calls": [
+      {
+        "finding_id": "8a5d0acdf4e229313a10",
+        "presentation_sha256": "ce65cb3103a24856bc689a4b58ea255075fcf4d19d271f6063f428e1267a4e3a",
+        "model": "gpt-5.6-sol",
+        "input_tokens": 84553,
+        "output_tokens": 1393,
+        "api_calls": 1,
+        "nano_aiu": 36607200000.0
+      }
+    ]
+  }
+}

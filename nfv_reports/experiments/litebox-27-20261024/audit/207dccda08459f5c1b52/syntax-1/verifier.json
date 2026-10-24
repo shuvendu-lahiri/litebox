@@ -1,0 +1,11 @@
+{
+  "outcome": "verified",
+  "exit_code": 0,
+  "duration_s": 0.725,
+  "mode": "typecheck",
+  "unroll": null,
+  "errors": [],
+  "stdout": "\nDafny program verifier did not attempt verification\n",
+  "stderr": "",
+  "verifier_version": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2"
+}
